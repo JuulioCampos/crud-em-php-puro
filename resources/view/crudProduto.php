@@ -13,7 +13,6 @@ $data = $_produto->index();
             <th scope="col">ID</th>
             <th scope="col">Nome</th>
             <th scope="col">Preço</th>
-            <th scope="col">Açao</th>
         </tr>
     </thead>
     <tbody>
@@ -23,7 +22,6 @@ $data = $_produto->index();
                 <td><?= $row['id']?></td>
                 <td><?= $row['nome']?></td>
                 <td>R$ <?= $row['preco']?></td>
-                <td>teste</td>
                 </tr>
             <?php } ?>
     </tbody>

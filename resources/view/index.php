@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -18,10 +19,10 @@
             <div class="container-fluid">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link active" data-bs-toggle="collapse" href="#crudUser" role="button" aria-expanded="false" aria-controls="crudUser" aria-current="page" href="#">Crud Usuário</a>
+                        <a id="crud-user" class="nav-link active" data-bs-toggle="collapse" href="#crudUser" role="button" aria-expanded="false" aria-controls="crudUser" aria-current="page" href="#">Crud Usuário</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#crudProduts" role="button" aria-expanded="false" aria-controls="crudProduts" aria-current="page" href="#">Crud Produto</a>
+                        <a class="nav-link" data-bs-toggle="collapse" href="#crudProduts" role="button" aria-expanded="false" aria-controls="crudProduts" aria-current="page" href="#">Listar Produtos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#listProdutos" role="button" aria-expanded="false" aria-controls="listProdutos" aria-current="page" href="#">Endpoint</a>
@@ -42,7 +43,9 @@
             </div>
             <div class="collapse mt-3" id="listProdutos">
                 <div class="card card-body">
-                    <?php require_once 'listProdutos.php' ?>
+                    <p>Endpoint para verificar o produto fica em:</p>
+                    <p><b>{url_local}/endpoint/{email}/{senha}</b></p>
+                    <p>verifique se existe os dados no banco antes de continuar!</p>
                 </div>
             </div>
         </section>

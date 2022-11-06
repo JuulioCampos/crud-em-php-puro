@@ -95,15 +95,16 @@ class Mapper extends MapperView
         return $data;
     }
 
-
     public function getAllProducts($email, $senha)
     {
         $sql = "SELECT 
-                    COUNT(p.id) AS 'qtd', 
+                    COUNT(p.id) AS 'quantidade_produtos', 
+                    p.id as 'id_produto',
                     p.nome AS 'nome_produto', 
                     p.preco AS 'valor_unidade', 
                     (p.preco * COUNT(p.id)) AS 'valor_total', 
-                    u.nome AS 'nome_usuario' 
+                    u.nome AS 'nome_usuario',
+                    u.id as 'id_usuario'
                 FROM produtos_usuarios pu 
                 LEFT JOIN usuario u ON u.id = pu.id_usuario
                 LEFT JOIN produto p ON p.id = pu.id_produto
