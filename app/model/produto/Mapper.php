@@ -52,8 +52,6 @@ class Mapper extends MapperView
     {
         parent::insert();
         try {
-            print_r($this->nome);
-            print_r($this->preco);
             $sql = "INSERT INTO produto (nome, preco) VALUES (:nome, :preco)";
             $p_sql = DB::getInstance()->prepare($sql);
 

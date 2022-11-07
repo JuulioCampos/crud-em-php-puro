@@ -7,7 +7,14 @@ use App\Controller\UsuarioController;
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+if (!$_GET['url']) {
+    header("Location: home");
+    die;
+}
+
 $route = (explode('/', $_GET['url']))[0];
+
 switch ($route) {
     case 'home':
         require_once 'resources/view/index.php';
@@ -15,30 +22,46 @@ switch ($route) {
 
         break;
     case 'endpoint':
+        if (empty((explode('/', $_GET['url']))[1]) && empty((explode('/', $_GET['url']))[2])) {
+            return header("Location: home?failed=endpoint_params");
+            die;
+        }
         $email = (explode('/', $_GET['url']))[1];
         $senha = (explode('/', $_GET['url']))[2];
-
         $_controlllerUsuario = new UsuarioController();
-        $data = $_controlllerUsuario->getProducts( $email, $senha);
+        $data = $_controlllerUsuario->getProducts($email, $senha);
         echo json_encode($data);
         die;
         break;
-    case 'listUsuario':
+    case 'list-usuario':
         $_controlllerUsuario = new UsuarioController();
         $data = $_controlllerUsuario->index();
         echo json_encode($data);
         die;
         break;
-    case 'atualizaUsuario':
-        require_once 'resources/view/index.php';
+    case 'update-usuario':
+
+        $data = json_decode(file_get_contents('php://input'), true);
+        $_controlllerUsuario = new UsuarioController();
+        $data = $_controlllerUsuario->update($data);
+        if($data) {
+            echo 'sucesso';
+            die;
+        }
+        echo 'falha';
         die;
         break;
-    case 'delete':
-        require_once 'resources/view/index.php';
+    case 'delete-usuario':
+        $data = json_decode(file_get_contents('php://input'), true);
+        $_controlllerUsuario = new UsuarioController();
+        $data = $_controlllerUsuario->delete($data['id']);
         die;
         break;
-    case 'createUser':
-        require_once 'resources/view/index.php';
+    case 'create-usuario':
+        $data = json_decode(file_get_contents('php://input'), true);
+        $_controlllerUsuario = new UsuarioController();
+        $data = $_controlllerUsuario->create($data);
+        var_dump($data);
         die;
         break;
     default:

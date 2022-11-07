@@ -13,28 +13,50 @@ class UsuarioController
 
         return $_mapper->findAll('usuario');
     }
-    public function create()
+    public function create($data)
     {
-        # code...
+        try {
+            $_mapper = new Mapper();
+            $_mapper->setNome($data['nome']);
+            $_mapper->setCpf($data['cpf']);
+            $_mapper->setEmail($data['email']);
+            $_mapper->setSenha($data['senha']);
+            $_mapper->insert();
+            return 'dados inseridos';
+        } catch (\Throwable $th) {
+            return false;
+        }
     }
-    public function update()
+    public function update($data)
     {
-        # code...
+        try {
+            $_mapper = new Mapper();
+            $_mapper->setId($data['id']);
+            $_mapper->setNome($data['nome']);
+            $_mapper->setCpf($data['cpf']);
+            $_mapper->setEmail($data['email']);
+            $_mapper->setSenha($data['senha']);
+            $_mapper->update();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+
     }
     public function getProducts($email, $senha)
     {
         $_mapper = new Mapper();
         return $_mapper->getAllProducts($email, $senha);
     }
-    public function delete()
+    public function delete(int $id)
     {
-        return (
-            `<script> 
-            Swal.fire({
-              icon: 'error',
-              title: 'Oops...',
-              text: 'A função deletar foi desativada!',
-            })
-            </script>`);
+        try {
+            $_mapper = new Mapper();
+            $_mapper->setId($id);
+            $_mapper->delete();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
     }
 }
