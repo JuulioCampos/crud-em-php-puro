@@ -17,3 +17,7 @@ ENDPOINTS
     <li>POST: /delete-usuario</li>
     <li>POST: /create-usuario</li>
 </ul>
+
+
+para subir o banco pelo terminal
+mysql -u{usuario banco} -p{sua senha} < {nome da tabela criada}
