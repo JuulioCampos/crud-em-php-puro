@@ -69,7 +69,7 @@
                         <li>GET: /list-usuario</li>
                         <li>POST: /update-usuario</li>
                         <li>POST: /delete-usuario</li>
-                        <li>POST: /create-user</li>
+                        <li>POST: /create-usuario</li>
                     </ul>
 
 

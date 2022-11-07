@@ -122,7 +122,7 @@ $data = $_usuario->index();
     $('#crud-user').click(() => {
         Swal.fire({
             title: 'Carregando...',
-            timer: 1000,
+            timer: 500,
             timerProgressBar: true,
             didOpen: () => {
                 Swal.showLoading()
@@ -133,7 +133,7 @@ $data = $_usuario->index();
     })
 
     function getUsers() {
-        $listUser = $.get("/list-usuario", ($data) => { //teste
+        $listUser = $.get("/list-usuario", ($data) => {
             $data = JSON.parse($data)
             this.listUser = $data
             $("#tbody-user tr").empty()
@@ -191,7 +191,7 @@ $data = $_usuario->index();
             'cpf': $('.edit-cpf').val(),
             'senha': $('.edit-senha').val()
         }
-        axios.post('/update-usuario', $data) //teste
+        axios.post('/update-usuario', $data)
             .then(function(response) {
                 Toast.fire({
                     icon: 'success',
@@ -215,7 +215,7 @@ $data = $_usuario->index();
             'cpf': $('.create-cpf').val(),
             'senha': $('.create-senha').val()
         }
-        axios.post('/create-usuario', $data) //teste
+        axios.post('/create-usuario', $data)
             .then(function(response) {
                 Toast.fire({
                     icon: 'success',
@@ -255,7 +255,7 @@ $data = $_usuario->index();
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.post('/delete-usuario', $data) //teste
+                axios.post('/delete-usuario', $data)
                     .then(function(response) {
                         Toast.fire({
                             icon: 'success',
