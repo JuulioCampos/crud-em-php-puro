@@ -13,8 +13,8 @@ ENDPOINTS
 
 <ul>
     <li>GET: /list-usuario</li>
-    <li>POST: /update-usuario</li>
-    <li>POST: /delete-usuario</li>
+    <li>PUT: /update-usuario</li>
+    <li>DELETE: /delete-usuario</li>
     <li>POST: /create-usuario</li>
 </ul>
 
