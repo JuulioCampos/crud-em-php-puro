@@ -20,4 +20,4 @@ ENDPOINTS
 
 
 para subir o banco pelo terminal
-mysql -u{usuario banco} -p{sua senha} < {nome da tabela criada}
+mysql -u{usuario banco} -p{sua senha} {nome da tabela criada} < dump.sql
