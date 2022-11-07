@@ -133,7 +133,7 @@ $data = $_usuario->index();
     })
 
     function getUsers() {
-        $listUser = $.get("/list-usuario", ($data) => {
+        $listUser = $.get("/teste/list-usuario", ($data) => {
             $data = JSON.parse($data)
             this.listUser = $data
             $("#tbody-user tr").empty()
@@ -191,7 +191,7 @@ $data = $_usuario->index();
             'cpf': $('.edit-cpf').val(),
             'senha': $('.edit-senha').val()
         }
-        axios.post('/update-usuario', $data)
+        axios.put('/update-usuario', $data) //request
             .then(function(response) {
                 Toast.fire({
                     icon: 'success',
@@ -215,7 +215,7 @@ $data = $_usuario->index();
             'cpf': $('.create-cpf').val(),
             'senha': $('.create-senha').val()
         }
-        axios.post('/create-usuario', $data)
+        axios.post('/create-usuario', $data) //request
             .then(function(response) {
                 Toast.fire({
                     icon: 'success',
@@ -255,7 +255,7 @@ $data = $_usuario->index();
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.post('/delete-usuario', $data)
+                axios.post('/delete-usuario', $data) //request
                     .then(function(response) {
                         Toast.fire({
                             icon: 'success',
