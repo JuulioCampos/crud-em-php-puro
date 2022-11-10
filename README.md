@@ -1,5 +1,5 @@
 # crud-em-php-puro
-Pequeno crud utilizando POO e DAO
+Pequeno crud utilizando POO
 
 Foi utilizado PHP no back, modelo MVC
 
